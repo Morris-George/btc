@@ -2,6 +2,31 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "headers": [
-    {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]}
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/retail",
+      "destination": "/retail/stores/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/retail/",
+      "destination": "/retail/stores/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/retail/index.html",
+      "destination": "/retail/stores/index.html",
+      "permanent": false
+    }
   ]
 }
