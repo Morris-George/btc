@@ -525,14 +525,14 @@
       if(ok&&state.text&&it.dataset.name.indexOf(state.text)<0)ok=false;
       it.style.display=ok?'':'none';if(ok){n++;it.classList.add('in')}});
       out.textContent=n;if(empty)empty.hidden=n>0;relayout()};
-    $$('.chip[data-f]',fr).forEach(function(c){c.addEventListener('click',function(){var g=c.dataset.g||'all';state[g]=c.dataset.f;$$('.chip',c.parentElement).forEach(function(x){x.classList.toggle('is-on',x===c);x.setAttribute('aria-pressed',x===c)});apply()})});
+    $$('.chip[data-f]',fr).forEach(function(c){c.addEventListener('click',function(){var g=c.dataset.g||'all';state[g]=c.dataset.f;if(kind==='store'&&g==='type'){state.text=c.dataset.q||'';if(q)q.value=state.text}$$('.chip',c.parentElement).forEach(function(x){x.classList.toggle('is-on',x===c);x.setAttribute('aria-pressed',x===c)});apply()})});
     if(q)q.addEventListener('input',function(){state.text=q.value.trim().toLowerCase();apply()});
     var setChip=function(g,val){$$('.chip[data-f]',fr).forEach(function(x){if((x.dataset.g||'all')!==g)return;var on=x.dataset.f===val;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on)});state[g]=val};
     fr._api={site:function(key,reg){state.site=key;if(reg)setChip('region',reg);apply()},clearSite:function(){state.site='all';apply()}};
     var p=new URLSearchParams(location.search);
     var pick=function(g,val){var c=$$('.chip[data-f]',fr).filter(function(x){return (x.dataset.g||'all')===g&&x.dataset.f===val})[0];if(c)c.click()};
     if(kind==='brand'){if(p.get('category'))pick('all',p.get('category'));else if(p.get('group'))pick('all','group:'+p.get('group'))}
-    else{if(p.get('q')&&q){q.value=p.get('q');state.text=q.value.trim().toLowerCase();apply()}if(p.get('region')){pick('region',p.get('region'));maps.forEach(function(o){if(o.sync)o.sync(p.get('region'))})}if(p.get('type'))pick('type',p.get('type'))}
+    else{if(p.get('q')&&q){var qc=$$('.chip[data-q]',fr).filter(function(x){return x.dataset.q===p.get('q').toLowerCase()})[0];if(qc)qc.click();else{q.value=p.get('q');state.text=q.value.trim().toLowerCase();apply()}}if(p.get('region')){pick('region',p.get('region'));maps.forEach(function(o){if(o.sync)o.sync(p.get('region'))})}if(p.get('type'))pick('type',p.get('type'))}
   }
 
   /* ---------- search page ---------- */
