@@ -1095,3 +1095,14 @@ a:not([href]){cursor:default}
 /* Retail dropdown */
 .dd a.dd-all{color:var(--gold-hi);border-bottom:1px solid var(--hair);border-radius:9px 9px 0 0;margin-bottom:4px;padding-bottom:11px}
 .dd{max-height:calc(100vh - var(--hdr) - 30px);overflow:auto}
+/* touch: tap-to-open dropdown */
+.nv.open .dd{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+@media (max-width:1100px){
+  .dd{display:block;position:fixed;left:var(--pad);right:auto;top:calc(var(--hdr) - 4px);margin:0;max-height:calc(100vh - var(--hdr) - 16px);overflow:auto;opacity:0;visibility:hidden}
+  .nv:not(.open) .dd{pointer-events:none}
+  .nv:nth-last-child(-n+2) .dd{left:var(--pad);right:auto}
+  .nv:hover .dd,.nv:focus-within .dd{opacity:0;visibility:hidden}
+  .nv.open .dd{opacity:1;visibility:visible}
+}
+/* the strip's edge-fade mask would clip the open dropdown: drop it while a list is open */
+.quick:has(.nv.open){-webkit-mask-image:none;mask-image:none}

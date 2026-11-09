@@ -110,6 +110,13 @@
   var qn=$('.quick'),qa=qn&&$('.is-active',qn);
   if(qa&&qn.scrollWidth>qn.clientWidth)qn.scrollLeft=Math.max(0,qa.offsetLeft-(qn.clientWidth-qa.offsetWidth)/2);
 
+  /* ---------- top nav dropdown: on touch screens a tap opens the list instead of navigating ---------- */
+  var touchNav=function(){return (w.matchMedia&&matchMedia('(hover: none)').matches)||w.innerWidth<=1100};
+  $$('.nv.has-dd > a').forEach(function(a){a.addEventListener('click',function(e){
+    if(!touchNav())return;e.preventDefault();var nv=a.parentNode,o=!nv.classList.contains('open');
+    $$('.nv.open').forEach(function(x){x.classList.remove('open')});if(o)nv.classList.add('open')})});
+  d.addEventListener('click',function(e){if(!e.target.closest('.nv.has-dd'))$$('.nv.open').forEach(function(x){x.classList.remove('open')})});
+
   /* ---------- page curtain ---------- */
   var ap=d.createElement('div');ap.className='aperture';ap.setAttribute('aria-hidden','true');body.appendChild(ap);
   if(html.classList.contains('arriving'))setTimeout(function(){html.classList.remove('arriving')},1200);
