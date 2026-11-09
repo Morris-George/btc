@@ -22,9 +22,5 @@ def top_nav(R, sec):
     for k, t, u, subs in TOP:
         cur = ' class="is-active"' if k == sec else ''
         a = '<a href="%s%s"%s>%s</a>' % (R, u, cur, e(t))
-        if subs:
-            dd = '<ul class="dd">' + ''.join('<li><a href="%s%s">%s</a></li>' % (R, e(su), e(st)) for st, su in subs) + '</ul>'
-            out.append('<div class="nv has-dd">%s%s</div>' % (a, dd))
-        else:
-            out.append('<div class="nv">%s</div>' % a)
+        out.append('<div class="nv">%s</div>' % a)
     return '<nav class="quick" aria-label="Main sections">%s</nav>' % ''.join(out)
