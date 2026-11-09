@@ -525,7 +525,7 @@
     var p=new URLSearchParams(location.search);
     var pick=function(g,val){var c=$$('.chip[data-f]',fr).filter(function(x){return (x.dataset.g||'all')===g&&x.dataset.f===val})[0];if(c)c.click()};
     if(kind==='brand'){if(p.get('category'))pick('all',p.get('category'));else if(p.get('group'))pick('all','group:'+p.get('group'))}
-    else{if(p.get('region')){pick('region',p.get('region'));maps.forEach(function(o){if(o.sync)o.sync(p.get('region'))})}if(p.get('type'))pick('type',p.get('type'))}
+    else{if(p.get('q')&&q){q.value=p.get('q');state.text=q.value.trim().toLowerCase();apply()}if(p.get('region')){pick('region',p.get('region'));maps.forEach(function(o){if(o.sync)o.sync(p.get('region'))})}if(p.get('type'))pick('type',p.get('type'))}
   }
 
   /* ---------- search page ---------- */

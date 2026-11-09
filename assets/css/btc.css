@@ -1092,3 +1092,6 @@ a:not([href]){cursor:default}
 .brand-card:hover{border-color:var(--hair)}
 .brand-card:hover .bc-logo img{transform:none}
 .brand-card:hover .bc-logo::after{transform:none}
+/* Retail dropdown */
+.dd a.dd-all{color:var(--gold-hi);border-bottom:1px solid var(--hair);border-radius:9px 9px 0 0;margin-bottom:4px;padding-bottom:11px}
+.dd{max-height:calc(100vh - var(--hdr) - 30px);overflow:auto}
