@@ -1083,3 +1083,6 @@ a:not([href]){cursor:default}
 .js .ph-scene .ph-bg img{height:118%;opacity:.42;filter:grayscale(.35) contrast(1.05);transform:none;animation:none}
 .js .ph-scene .ph-bg::after{opacity:1}
 .js .ph-scene .ph-ring{display:none!important}
+.foot-grid{grid-template-columns:1.6fr 1fr 1fr}
+@media (max-width:1240px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.foot-grid{grid-template-columns:1fr}}
