@@ -1072,3 +1072,6 @@ html.arriving::after{display:none!important}
 .hx-nile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hx-nile::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.45)),radial-gradient(120% 100% at 50% 50%,transparent 60%,rgba(0,0,0,.35))}
 @media (max-width:900px){.hx-nile{width:min(80vw,360px)}}
+/* brand entries are display-only (not links) */
+a:not([href]){cursor:default}
+.blist .bl-go{display:none}
