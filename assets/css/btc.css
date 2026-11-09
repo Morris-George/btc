@@ -1086,3 +1086,9 @@ a:not([href]){cursor:default}
 .foot-grid{grid-template-columns:1.6fr 1fr 1fr}
 @media (max-width:1240px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:700px){.foot-grid{grid-template-columns:1fr}}
+/* brand cards are display-only */
+.brand-card{cursor:default}
+.brand-card .bc-arrow{display:none}
+.brand-card:hover{border-color:var(--hair)}
+.brand-card:hover .bc-logo img{transform:none}
+.brand-card:hover .bc-logo::after{transform:none}
