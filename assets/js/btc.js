@@ -513,7 +513,7 @@
     var items=$$('[data-items] > a'),q=$('[data-q]',fr),out=$('[data-count-out]',fr),empty=$('.empty'),kind=fr.dataset.kind==='store'?'store':'brand';
     var state={all:'all',region:'all',type:'all',text:'',site:'all'};
     var apply=function(){var n=0;items.forEach(function(it){var ok=true;
-      if(kind==='brand'){var f=state.all;if(f!=='all'){ok=f.indexOf('group:')===0?it.dataset.div===f.slice(6):it.dataset.cat===f}}
+      if(kind==='brand'){var f=state.all;if(f!=='all'){ok=f.indexOf('group:')===0?it.dataset.div===f.slice(6):(it.dataset.cat||'').split('|').indexOf(f)>-1}}
       else{if(state.region!=='all'&&it.dataset.region!==state.region)ok=false;if(state.type!=='all'&&it.dataset.type!==state.type)ok=false;if(state.site!=='all'&&it.dataset.site!==state.site)ok=false}
       if(ok&&state.text&&it.dataset.name.indexOf(state.text)<0)ok=false;
       it.style.display=ok?'':'none';if(ok){n++;it.classList.add('in')}});
