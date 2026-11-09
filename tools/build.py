@@ -36,32 +36,21 @@ QUICK = [('about', 'About', 'about/index.html'), ('brands', 'Brands', 'brands/in
 MENU_IMG = {'': 'store-btc', 'about': 'heritage-lauria-shop', 'brands': 'mag-hamilton-chrono', 'retail': 'store-pandora', 'business': 'store-link', 'leadership': 'people-managing-directors', 'achievements': 'heritage-family-portraits', 'careers': 'store-laderach', 'news': 'mag-cover', 'contact': 'store-rado'}
 SEC_ALIAS = {'resources': 'news', 'search': None}
 
+from topnav import top_nav
 ARROW = '<span aria-hidden="true">→</span>'
 e = lambda s: H.escape(s, quote=True)
 
 def header(R, sec):
-    q = ''.join('<a href="%s%s"%s>%s</a>' % (R, u, ' class="is-active"' if k == sec else '', t) for k, t, u in QUICK)
-    items = []
-    for i, (k, t, u, subs) in enumerate(NAV):
-        cur = ' class="is-active"' if k == sec else ''
-        sub = ''
-        if subs:
-            sub = '<ul>' + ''.join('<li><a href="%s%s">%s</a></li>' % (R, e(su), e(st)) for st, su in subs) + '</ul>'
-        items.append('<li%s style="--i:%d" data-img="%sassets/img/photos/%s.webp"><a href="%s%s">%s</a>%s</li>' % (cur, i, R, MENU_IMG.get(k, 'store-btc'), R, u, e(t), sub))
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="site-header" id="top"><div class="bar">
  <a class="logo" href="{R}index.html" aria-label="BTC Group, home"><img src="{R}assets/img/logos/btc-mark.webp" alt="" width="688" height="514" decoding="async"><span class="logo-txt">Watches &amp; Jewelry<br><b>Since 1935</b></span></a>
- <nav class="quick" aria-label="Main sections">{q}</nav>
+ {top_nav(R, sec)}
  <div class="bar-r">
   <span class="clock" title="Local time in Cairo"><i class="lume" aria-hidden="true"></i><span>Cairo</span> <time data-clock>--:--</time></span>
   <a class="icon-btn" href="{R}search/index.html" aria-label="Search the site"><svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="1.4"/></svg></a>
   <div class="lang"><button class="lang-btn" aria-expanded="false" aria-haspopup="true">EN <svg viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button><ul class="lang-menu"><li><span class="lang-item is-current" lang="en">English</span></li><li><span class="lang-item is-soon" lang="ar">العربية <em>Coming soon</em></span></li></ul></div>
-  <button class="menu-btn" aria-expanded="false" aria-controls="site-menu"><span class="menu-word">Menu</span><span class="menu-lines" aria-hidden="true"><i></i><i></i></span></button>
  </div></div></header>
-<div class="menu" id="site-menu" aria-hidden="true" inert><div class="menu-dial" aria-hidden="true"></div><div class="container menu-in">
- <nav aria-label="Primary"><ul class="mnav">{''.join(items)}</ul></nav>
- <aside class="menu-aside" style="--i:11"><div class="m-window" aria-hidden="true"><div class="m-win-in"></div><i class="m-bezel"></i></div><h3>Time in Cairo</h3><p class="m-time"><time data-clock>--:--</time></p><p>Watches and jewelry in Egypt since 1935.</p><address>19 Abbass El Akkad St., Nasr City, Cairo, Egypt<br><a href="tel:+20224015772">+20 2 2401 57 72</a><br><a href="mailto:btcmagazine@btc.com.eg">btcmagazine@btc.com.eg</a></address></aside>
-</div></div>'''
+'''
 
 def footer(R):
     return f'''<footer class="site-footer">

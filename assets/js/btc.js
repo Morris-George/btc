@@ -106,6 +106,10 @@
   d.addEventListener('click',function(e){if(!e.target.closest('.lang')){var l=$('.lang');if(l){l.classList.remove('open');if(lb)lb.setAttribute('aria-expanded','false')}}});
   d.addEventListener('keydown',function(e){if(e.key==='Escape'){if(html.classList.contains('menu-open')){setMenu(false);menuBtn.focus()}$$('.open').forEach(function(x){x.classList.remove('open')})}});
 
+  /* ---------- top nav: keep the current section in view on narrow screens ---------- */
+  var qn=$('.quick'),qa=qn&&$('.is-active',qn);
+  if(qa&&qn.scrollWidth>qn.clientWidth)qn.scrollLeft=Math.max(0,qa.offsetLeft-(qn.clientWidth-qa.offsetWidth)/2);
+
   /* ---------- page curtain ---------- */
   var ap=d.createElement('div');ap.className='aperture';ap.setAttribute('aria-hidden','true');body.appendChild(ap);
   if(html.classList.contains('arriving'))setTimeout(function(){html.classList.remove('arriving')},1200);
