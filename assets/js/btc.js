@@ -372,7 +372,7 @@
   if(tt){tt.hidden=false;tt.addEventListener('click',function(){scrollToY(0)})}
 
   /* ---------- inner page heroes: aperture scenes ---------- */
-  var scenes=reduce?[]:$$('.ph-scene').map(function(el){return {el:el,dial:$('.bh-dial',el),pin:$('.ph-pin',el)}});
+  var scenes=[];
   function layoutScenes(){
     scenes.forEach(function(sc){
       sc.top=sc.el.getBoundingClientRect().top+w.scrollY;sc.span=Math.max(1,sc.el.offsetHeight-VH);

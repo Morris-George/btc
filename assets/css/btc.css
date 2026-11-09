@@ -1075,3 +1075,11 @@ html.arriving::after{display:none!important}
 /* brand entries are display-only (not links) */
 a:not([href]){cursor:default}
 .blist .bl-go{display:none}
+/* page heroes: static (no pinned scroll scene, no circular reveal, no dial ring) */
+.js .ph-scene{height:auto!important;overflow:hidden}
+.js .ph-scene .ph-pin{position:relative;top:auto;height:auto;min-height:0;display:block;overflow:visible}
+.js .ph-scene .ph-in{padding-top:calc(var(--hdr) + clamp(40px,7vw,100px));padding-bottom:clamp(56px,7vw,100px);transform:none}
+.js .ph-scene .ph-bg{clip-path:none!important}
+.js .ph-scene .ph-bg img{height:118%;opacity:.42;filter:grayscale(.35) contrast(1.05);transform:none;animation:none}
+.js .ph-scene .ph-bg::after{opacity:1}
+.js .ph-scene .ph-ring{display:none!important}
