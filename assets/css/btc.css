@@ -1173,3 +1173,9 @@ h1,h2{color:var(--gold-hi)}
 .chrono-grid{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1100px){.chrono-grid{grid-template-columns:repeat(2,1fr);gap:44px 20px}}
 @media (max-width:600px){.chrono-grid{grid-template-columns:1fr}}
+/* map overview: every store location as a small dot, no counts */
+.emap:not(.zoomed) .em-site>i{width:10px;height:10px;box-shadow:0 0 0 3px rgba(168,240,217,.12),0 0 10px 1px rgba(168,240,217,.45)}
+.emap:not(.zoomed) .em-site>i::after{display:none}
+.emap:not(.zoomed) .em-region>i{display:none}
+.emap:not(.zoomed) .em-region{pointer-events:auto}
+.emap:not(.zoomed) .em-region .em-lab{opacity:.9;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-color:transparent;background:rgba(4,5,6,.45)}

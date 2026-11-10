@@ -439,18 +439,25 @@
   var maps=$$('[data-emap]').map(function(m){
     var o={el:m,mode:m.dataset.emap,svg:$('.em-svg',m),frame:$('.em-frame',m),pins:$$('.em-pin',m),V:{},view:'all',back:$('.em-back',m)};
     ['all','gc','alexandria'].forEach(function(k){var a=m.getAttribute('data-v-'+k);if(a)o.V[k]=a.split(' ').map(Number)});
-    o.cur=o.V.all.slice();return o;
+    o.cur=o.V.all.slice();
+    /* overview: spread each governorate's points apart so every store location is visible */
+    var grp={};o.pins.forEach(function(p){if(p.classList.contains('em-site')){(grp[p.dataset.region]=grp[p.dataset.region]||[]).push(p)}});
+    Object.keys(grp).forEach(function(r){var a=grp[r],cx=0,cy=0;a.forEach(function(p){cx+=+p.dataset.x;cy+=+p.dataset.y});cx/=a.length;cy/=a.length;
+      var K=r==='Alexandria'?9:10,off={Cairo:[34,-8],Giza:[-34,16],Alexandria:[0,0]}[r]||[0,0];
+      a.forEach(function(p){p.dataset.sx=(cx+off[0]+(+p.dataset.x-cx)*K).toFixed(2);p.dataset.sy=(cy+off[1]+(+p.dataset.y-cy)*K).toFixed(2)});
+      var rp=o.pins.filter(function(p){return p.classList.contains('em-region')&&p.dataset.region===r})[0];if(rp){rp.dataset.sx=(+rp.dataset.x+off[0]).toFixed(2);rp.dataset.sy=(+rp.dataset.y+off[1]-(r==='Alexandria'?0:44)).toFixed(2)}});
+    return o;
   });
   var viewOf=function(r){return r==='Alexandria'?'alexandria':r==='all'?'all':'gc'};
   function placeMap(o){
     var W=o.frame.clientWidth,H=o.frame.clientHeight,c=o.cur,sc=Math.min(W/c[2],H/c[3]),ox=(W-c[2]*sc)/2,oy=(H-c[3]*sc)/2;
     o.svg.setAttribute('viewBox',c.map(function(v){return v.toFixed(3)}).join(' '));
-    o.pins.forEach(function(p){if(p.hidden)return;p.style.setProperty('--px',((+p.dataset.x-c[0])*sc+ox).toFixed(1)+'px');p.style.setProperty('--py',((+p.dataset.y-c[1])*sc+oy).toFixed(1)+'px')});
+    o.pins.forEach(function(p){if(p.hidden)return;var sp=o.view==='all'&&p.dataset.sx,X=sp?+p.dataset.sx:+p.dataset.x,Y=sp?+p.dataset.sy:+p.dataset.y;p.style.setProperty('--px',((X-c[0])*sc+ox).toFixed(1)+'px');p.style.setProperty('--py',((Y-c[1])*sc+oy).toFixed(1)+'px')});
   }
   function placeMaps(){maps.forEach(placeMap)}
   function mapView(o,k,instant){
     if(!o.V[k])return;o.view=k;o.el.classList.toggle('zoomed',k!=='all');
-    o.pins.forEach(function(p){var reg=p.classList.contains('em-region');p.hidden=k==='all'?!reg:(reg||viewOf(p.dataset.region)!==k)});
+    o.pins.forEach(function(p){var reg=p.classList.contains('em-region');p.hidden=k==='all'?false:(reg||viewOf(p.dataset.region)!==k)});
     if(o.back)o.back.hidden=k==='all';
     $$('.em-pane',o.el).forEach(function(pn){pn.hidden=pn.dataset.pane!==k});
     var from=o.cur.slice(),to=o.V[k],t0=performance.now(),D=instant||reduce?0:1100;
@@ -460,7 +467,7 @@
       o.cur=[from[0]+(to[0]-from[0])*f,from[1]+(to[1]-from[1])*f,wv,from[3]+(to[3]-from[3])*f];placeMap(o);if(t<1)requestAnimationFrame(step)})(t0);
   }
   maps.forEach(function(o){
-    placeMap(o);
+    if(o.mode!=='teaser')mapView(o,'all',true);else placeMap(o);
     if(o.mode==='teaser'){
       $$('.regions a').forEach(function(a){var m=/region=([^&]+)/.exec(a.getAttribute('href')||'');if(!m)return;var pin=$('.em-region[href*="region='+m[1]+'"]',o.el);
         if(pin){a.addEventListener('mouseenter',function(){pin.classList.add('on')});a.addEventListener('mouseleave',function(){pin.classList.remove('on')})}});
