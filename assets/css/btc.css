@@ -1159,3 +1159,14 @@ h1,h2{color:var(--gold-hi)}
 .chains .eco-node{padding:12px;align-items:stretch}
 .chains .eco-logo{margin:0;height:92px;width:100%}
 .eco-stem{display:none}
+/* hierarchy: white BTC logo, trunk and branches to each chain */
+.eco-root img{height:clamp(84px,11vw,130px);filter:brightness(0) invert(1)}
+.eco-stem{display:block;width:1px;height:30px;margin:10px auto 0;background:var(--gold)}
+.chains{gap:44px 18px;padding-top:22px}
+.chains::before{display:block;content:"";position:absolute;left:50%;top:0;bottom:140px;width:1px;background:var(--gold);right:auto;height:auto}
+.chains .eco-node{height:118px}
+.chains .eco-node::before{content:"";position:absolute;left:50%;top:-22px;width:1px;height:22px;background:var(--gold)}
+.chains .eco-node::after{content:"";position:absolute;top:-22px;left:-9px;right:-9px;height:1px;background:var(--gold)}
+.chains .eco-node:nth-child(4n+1)::after{left:50%}
+.chains .eco-node:nth-child(4n)::after{right:50%}
+@media (max-width:900px){.chains{gap:14px}.chains::before,.chains .eco-node::before,.chains .eco-node::after,.eco-stem{display:none}.chains .eco-node{height:auto}}
