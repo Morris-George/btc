@@ -1143,3 +1143,5 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em}
 .hx-copy{position:relative;z-index:2}
 @media (min-width:901px){.hx-in{padding-left:var(--pad);padding-right:var(--pad)}}
 .chrono-head h2{color:var(--gold-hi)}
+/* page and section titles in gold */
+h1,h2{color:var(--gold-hi)}
