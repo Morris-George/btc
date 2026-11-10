@@ -1145,3 +1145,17 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em}
 .chrono-head h2{color:var(--gold-hi)}
 /* page and section titles in gold */
 h1,h2{color:var(--gold-hi)}
+/* company tree -> BTC logo over all retail chains */
+.eco-root{border:0;background:none;padding:0;border-radius:0;box-shadow:none}
+.eco-root img{height:clamp(90px,12vw,150px);filter:none}
+.eco-stem{width:1px;height:38px;margin:6px auto 0;background:var(--gold)}
+.chains{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;padding-top:22px}
+.chains::before{content:"";position:absolute;top:0;left:12.5%;right:12.5%;height:1px;background:var(--gold)}
+.chains .eco-node{padding:18px 20px;gap:10px;align-items:flex-start}
+.chains .eco-node b{font-size:1.15rem}
+.eco-name{font-weight:600;color:#14120e;letter-spacing:.04em}
+@media (max-width:900px){.chains{grid-template-columns:repeat(2,1fr)}.chains::before,.eco-stem{display:none}}
+.chains::before{display:none}
+.chains .eco-node{padding:12px;align-items:stretch}
+.chains .eco-logo{margin:0;height:92px;width:100%}
+.eco-stem{display:none}
