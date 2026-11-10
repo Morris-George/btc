@@ -457,7 +457,7 @@
   function placeMaps(){maps.forEach(placeMap)}
   function mapView(o,k,instant){
     if(!o.V[k])return;o.view=k;o.el.classList.toggle('zoomed',k!=='all');
-    o.pins.forEach(function(p){var reg=p.classList.contains('em-region');p.hidden=k==='all'?false:(reg||viewOf(p.dataset.region)!==k)});
+    o.pins.forEach(function(p){var reg=p.classList.contains('em-region');p.hidden=k==='all'?false:(reg||p.classList.contains('em-gov')||viewOf(p.dataset.region)!==k)});
     if(o.back)o.back.hidden=k==='all';
     $$('.em-pane',o.el).forEach(function(pn){pn.hidden=pn.dataset.pane!==k});
     var from=o.cur.slice(),to=o.V[k],t0=performance.now(),D=instant||reduce?0:1100;

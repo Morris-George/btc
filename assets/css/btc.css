@@ -1179,3 +1179,10 @@ h1,h2{color:var(--gold-hi)}
 .emap:not(.zoomed) .em-region>i{display:none}
 .emap:not(.zoomed) .em-region{pointer-events:auto}
 .emap:not(.zoomed) .em-region .em-lab{opacity:.9;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-color:transparent;background:rgba(4,5,6,.45)}
+
+/* map: governorate dots, no region labels */
+.emap:not(.zoomed) .em-region .em-lab{display:none}
+.em-gov{pointer-events:none;transform:translate(calc(var(--px,0px) - 50%),calc(var(--py,0px) - 50%))}
+.em-gov>i{width:7px;height:7px;background:var(--lume);opacity:.8;box-shadow:0 0 0 2px rgba(168,240,217,.12),0 0 8px 1px rgba(168,240,217,.4)}
+.em-gov>i::after{display:none}
+.emap[data-emap="teaser"] .em-region>i{display:block}
