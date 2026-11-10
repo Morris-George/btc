@@ -1121,3 +1121,24 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em}
 /* top menu: bold, centred on the page */
 .nv>a{font-weight:600}
 @media (min-width:1101px){.quick{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}}
+/* homepage hero: large Nile photo that fades into the text */
+.hx-in{grid-template-columns:minmax(0,38rem);position:relative;z-index:2}
+.hx-watch{position:static}
+.hx-cap{display:none}
+.hx-nile{position:absolute;z-index:1;top:0;right:0;bottom:0;left:auto;width:74%;aspect-ratio:auto;border:0;border-radius:0;background:none;box-shadow:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 22%,#000 48%),linear-gradient(180deg,#000 82%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 22%,#000 48%),linear-gradient(180deg,#000 82%,transparent);mask-composite:intersect}
+.hx-nile::after{background:linear-gradient(90deg,rgba(5,5,6,.35),transparent 45%)}
+.hx-nile img{object-position:45% 50%}
+@media (max-width:900px){
+  .hx{display:block;padding-top:var(--hdr)}
+  .hx-in{grid-template-columns:1fr;gap:0}
+  .hx-nile{position:relative;width:100%;height:56vw;min-height:240px;margin:0 0 -40px;
+    -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+  .hx-copy{padding-top:8px}
+}
+.js .hx-watch{animation:none;transform:none}
+.js .hx-nile{animation:hxIn 1.6s var(--e-out) .1s both}
+.hx-in{position:static}
+.hx-copy{position:relative;z-index:2}
+@media (min-width:901px){.hx-in{padding-left:var(--pad);padding-right:var(--pad)}}
