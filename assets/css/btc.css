@@ -1115,3 +1115,6 @@ h1,h2,h3{font-weight:500;letter-spacing:-.02em}
 @media (max-width:700px){.logo img{height:44px}}
 .num-since{font-size:clamp(2.2rem,4.2vw,3.6rem);white-space:nowrap}
 .hx-nile img{object-position:72% 50%}
+.grid.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1000px){.grid.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid.g4{grid-template-columns:1fr}}
