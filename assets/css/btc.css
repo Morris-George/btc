@@ -1170,3 +1170,6 @@ h1,h2{color:var(--gold-hi)}
 .chains .eco-node:nth-child(4n+1)::after{left:50%}
 .chains .eco-node:nth-child(4n)::after{right:50%}
 @media (max-width:900px){.chains{gap:14px}.chains::before,.chains .eco-node::before,.chains .eco-node::after,.eco-stem{display:none}.chains .eco-node{height:auto}}
+.chrono-grid{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1100px){.chrono-grid{grid-template-columns:repeat(2,1fr);gap:44px 20px}}
+@media (max-width:600px){.chrono-grid{grid-template-columns:1fr}}
