@@ -56,7 +56,7 @@ def footer(R):
  <div class="container foot-grid">
   <div class="foot-brand"><img src="{R}assets/img/logos/btc-90-pro.png" alt="BTC 90 years, 1935 – 2025" width="943" height="353" loading="lazy" decoding="async"><p>BTC Group is the family-owned group of companies that has been leading the watch and jewelry market in Egypt for over 90 years.</p></div>
   <div><h3>Company</h3><ul><li><a href="{R}about/index.html">About us</a></li><li><a href="{R}about/mission-vision-values/index.html">Mission, vision &amp; values</a></li><li><a href="{R}leadership/index.html">Leadership</a></li><li><a href="{R}achievements/index.html">Achievements</a></li><li><a href="{R}careers/index.html">Careers</a></li></ul></div>
-  <div><h3>Explore</h3><ul><li><a href="{R}brands/index.html">Our brands</a></li><li><a href="{R}retail/index.html">Retail</a></li><li><a href="{R}retail/stores/index.html">Store network</a></li><li><a href="{R}business/index.html">Our business</a></li><li><a href="{R}news/index.html">News</a></li><li><a href="{R}resources/index.html">Media &amp; resources</a></li></ul></div>
+  <div><h3>Explore</h3><ul><li><a href="{R}brands/index.html">Our brands</a></li><li><a href="{R}retail/index.html">Retail</a></li><li><a href="{R}retail/stores/index.html">Store network</a></li><li><a href="{R}news/index.html">News</a></li><li><a href="{R}resources/index.html">Media &amp; resources</a></li></ul></div>
   <div><h3>Contact</h3><address>19 Abbass El Akkad St., Nasr City, Cairo, Egypt<br><a href="tel:+20224015772">+20 2 2401 57 72</a><br><a href="mailto:btcmagazine@btc.com.eg">btcmagazine@btc.com.eg</a></address><p class="foot-social">Social media links to be added</p></div>
  </div>
  <div class="foot-mark" aria-hidden="true">Since 1935</div>
