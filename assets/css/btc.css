@@ -1196,3 +1196,8 @@ h1,h2{color:var(--gold-hi)}
 .nv.has-dd>a::before{content:"";position:absolute;right:11px;top:50%;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--e-out)}
 .nv.has-dd:hover>a::before,.nv.has-dd:focus-within>a::before,.nv.has-dd.open>a::before{transform:translateY(-30%) rotate(225deg)}
 @media (max-width:1100px){.nv.has-dd>a{padding-right:26px}.nv.has-dd>a::before{right:12px}}
+/* Egy Watch logo on a beige panel (store card + group-company card) */
+.sc-panel{display:grid;place-items:center;height:120px;padding:18px 26px;margin:-26px -28px 18px;background:var(--paper)}
+.sc-panel img{max-height:78px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.card>.sc-panel{margin:calc(-1 * clamp(28px,3vw,42px)) calc(-1 * clamp(28px,3vw,42px)) 22px;height:130px;border-radius:3px 3px 0 0}
+.store-card.sc-egy{cursor:default}.store-card.sc-egy:hover{transform:none}
