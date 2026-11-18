@@ -586,7 +586,7 @@ blockquote.big p{font-size:clamp(1.7rem,3vw,2.5rem)}
 .foot-big{display:inline-block;font-family:var(--serif);font-size:clamp(2.6rem,6.4vw,6.2rem);line-height:1;color:var(--ivory);text-decoration:none;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 2px no-repeat;padding-bottom:8px;transition:background-size .9s var(--e-out),color .4s}
 .foot-big:hover{background-size:100% 2px;color:var(--gold-hi)}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:clamp(30px,4vw,60px);padding-top:70px;padding-bottom:60px}
-.foot-brand img{width:150px;margin-bottom:22px}
+.foot-brand img{width:190px;height:auto;margin-bottom:22px}
 .foot-brand p{max-width:24rem}
 .site-footer h3{font-family:var(--sans);font-size:.88rem;color:var(--gold);font-weight:500;margin:0 0 18px;letter-spacing:.02em}
 .site-footer ul{list-style:none;padding:0;margin:0}.site-footer li{margin-bottom:10px}
@@ -1234,3 +1234,5 @@ blockquote p{font-size:1.2rem}
 @media (max-width:700px){.logo img{height:44px}}
 .logo img{height:46px;width:auto;border-radius:0}
 @media (max-width:700px){.logo img{height:38px}}
+.chains .eco-logo.eco-fill{padding:5px}
+.chains .eco-logo.eco-fill img{height:80px;max-height:80px;width:auto;max-width:100%;object-fit:contain}
