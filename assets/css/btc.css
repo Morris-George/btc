@@ -1201,3 +1201,27 @@ h1,h2{color:var(--gold-hi)}
 .sc-panel img{max-height:78px;max-width:100%;width:auto;height:auto;object-fit:contain}
 .card>.sc-panel{margin:calc(-1 * clamp(28px,3vw,42px)) calc(-1 * clamp(28px,3vw,42px)) 22px;height:130px;border-radius:3px 3px 0 0}
 .store-card.sc-egy{cursor:default}.store-card.sc-egy:hover{transform:none}
+/* smaller, calmer type scale on every device */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-size:15px;line-height:1.6}
+h1{font-size:clamp(2rem,4.4vw,3.9rem)}
+h2{font-size:clamp(1.55rem,2.8vw,2.5rem)}
+h3{font-size:1.25rem}
+.lead{font-size:clamp(.96rem,1.05vw,1.06rem)}
+.eyebrow{font-size:.95rem}
+.quick a{font-size:.84rem}
+.foot-big{font-size:clamp(1.8rem,3.8vw,3.2rem)}
+.foot-mark{font-size:clamp(3.6rem,14vw,15rem)}
+.mf-text{font-size:clamp(1.35rem,2.5vw,2.3rem)}
+.rh-big b{font-size:clamp(2.8rem,5.2vw,4.6rem)}.rh-big>span{font-size:.88rem}
+.sub .num,.stat .num{font-size:clamp(2.3rem,4.2vw,3.5rem)}
+.bl-name{font-size:clamp(1.3rem,2.1vw,1.9rem)}
+.rg-name,.regions a{font-size:1.5rem}
+.sc-name{font-size:1.25rem}.pn span{font-size:1.3rem}
+.tl-year{font-size:1.9rem}.hs-year{font-size:clamp(4rem,11vw,10rem)}
+.ld-year{font-size:clamp(2.2rem,5.5vw,3rem)}
+.value span{font-size:1.6rem}
+.eco-node b{font-size:1.2rem}.results b{font-size:1.3rem}
+blockquote p{font-size:1.2rem}
+.mnav>li>a{font-size:clamp(1.4rem,min(2.4vw,3.8vh),2.3rem)}
+.small{font-size:.82rem}
