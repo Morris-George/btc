@@ -333,7 +333,7 @@
 
   /* ---------- cursor ---------- */
   var cur=null,C={x:-100,y:-100,rx:-100,ry:-100};
-  if(fine&&!reduce){
+  if(false){
     cur=d.createElement('div');cur.className='cursor';cur.setAttribute('aria-hidden','true');
     cur.innerHTML='<div class="cursor-ring"><span class="cursor-label"></span></div><div class="cursor-dot"></div>';
     body.appendChild(cur);html.classList.add('has-cursor');
