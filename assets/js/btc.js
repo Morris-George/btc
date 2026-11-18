@@ -555,7 +555,7 @@
   var rd=$('[data-reader]');
   if(rd){var tot=+rd.dataset.total,base=rd.dataset.base,cp=1,im=$('.rd-img',rd),cnt=$('.rd-count',rd),jump=$('.rd-jump',rd),ths=$$('.rd-th',rd),strip=$('.rd-thumbs',rd);
     strip.setAttribute('data-native-scroll','');
-    var go=function(n){n=Math.max(1,Math.min(tot,n));cp=n;im.src=base+'pg-'+pad(n)+'.webp';im.alt='BTC Magazine 2025, page '+n;cnt.textContent='Page '+n+' of '+tot;jump.value=n;ths.forEach(function(t){t.classList.toggle('is-on',+t.dataset.p===n)});var t=ths[n-1];if(t)strip.scrollTo({left:t.offsetLeft-strip.clientWidth/2+t.clientWidth/2,behavior:'smooth'});[n+1,n+2].forEach(function(k){if(k<=tot){var x=new Image();x.src=base+'p-'+pad(k)+'.webp'}})};
+    var go=function(n){n=Math.max(1,Math.min(tot,n));cp=n;im.src=base+'sp-'+pad(n)+'.webp';im.alt='BTC Magazine 2025, page '+n;cnt.textContent='Page '+n+' of '+tot;jump.value=n;ths.forEach(function(t){t.classList.toggle('is-on',+t.dataset.p===n)});var t=ths[n-1];if(t)strip.scrollTo({left:t.offsetLeft-strip.clientWidth/2+t.clientWidth/2,behavior:'smooth'});[n+1,n+2].forEach(function(k){if(k<=tot){var x=new Image();x.src=base+'sp-'+pad(k)+'.webp'}})};
     $('.prev',rd).addEventListener('click',function(){go(cp-1)});$('.next',rd).addEventListener('click',function(){go(cp+1)});
     ths.forEach(function(t){t.addEventListener('click',function(){go(+t.dataset.p)})});jump.addEventListener('change',function(){go(+jump.value||1)});
     d.addEventListener('keydown',function(e){if(e.target&&/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight')go(cp+1);if(e.key==='ArrowLeft')go(cp-1)});
