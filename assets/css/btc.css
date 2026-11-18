@@ -1225,3 +1225,6 @@ h3{font-size:1.25rem}
 blockquote p{font-size:1.2rem}
 .mnav>li>a{font-size:clamp(1.4rem,min(2.4vw,3.8vh),2.3rem)}
 .small{font-size:.82rem}
+/* Egy Watch wordmark inside the dropdown and filter chip */
+.eg-mini{display:inline-block;height:19px;width:auto;vertical-align:middle;margin:-2px 0}
+.chip.is-on .eg-mini{filter:brightness(0.12)}
