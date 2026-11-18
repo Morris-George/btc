@@ -8,9 +8,7 @@ import parts
 ORIG = '/home/claude/orig'
 OUT = '/home/claude/site'
 V = '4'
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700'
-         '&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">')
+FONTS = ''
 
 def flag(name):
     return ("var s=null;try{s=sessionStorage.getItem('%s')}catch(e){s=(' '+window.name+' ').indexOf(' %s ')>-1?'1':null}" % (name, name))
