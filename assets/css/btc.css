@@ -1236,3 +1236,4 @@ blockquote p{font-size:1.2rem}
 @media (max-width:700px){.logo img{height:38px}}
 .chains .eco-logo.eco-fill{padding:5px}
 .chains .eco-logo.eco-fill img{height:80px;max-height:80px;width:auto;max-width:100%;object-fit:contain}
+.rh-big2{margin-top:34px;padding-top:34px;border-top:1px solid var(--hair);margin-bottom:40px}
