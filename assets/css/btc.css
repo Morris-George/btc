@@ -1242,3 +1242,4 @@ blockquote p{font-size:1.2rem}
 .has-cursor a,.has-cursor button,.has-cursor .chip{cursor:pointer!important}
 
 .tl-logo{display:inline-grid;place-items:center;height:48px;padding:8px 14px;border-radius:4px;background:var(--paper);margin-bottom:14px}.tl-logo img{max-height:32px;width:auto}
+.tl-img.is-logo.big{max-width:420px;padding:34px 30px}
